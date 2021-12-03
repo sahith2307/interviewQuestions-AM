@@ -1,0 +1,12 @@
+.list-of-qus {
+  display: flex;
+  justify-content: space-between;
+}
+hr {
+  width: 100%;
+}
+.arrange-cont {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}

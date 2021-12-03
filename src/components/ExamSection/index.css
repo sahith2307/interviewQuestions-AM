@@ -1,0 +1,25 @@
+.main-container {
+  height: 100vh;
+  width: 100vw;
+  background-color: #a60d12;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.un-ordered-lists {
+  height: 60%;
+  width: 80%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.arrange-head-cont {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
