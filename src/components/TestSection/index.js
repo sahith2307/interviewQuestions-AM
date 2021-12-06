@@ -7,7 +7,13 @@ import Data from "../data.json";
 import "./index.css";
 
 class TestSection extends Component {
-  state = { data: Data, questions: [], testName: "", questionIndex: 0 };
+  state = {
+    data: Data,
+    questions: [],
+    testName: "",
+    questionIndex: 0,
+    getAnswers: {},
+  };
 
   componentWillMount() {
     this.setQuestions();
@@ -27,32 +33,60 @@ class TestSection extends Component {
     });
   };
 
+  gettingAnswers = (value, correctValue, id) => {
+    const valueput = {};
+    valueput[id] = value === correctValue;
+    this.setState(prev=>({ getAnswers: { ...prev.getAnswers,...valueput } }));
+  };
+
   prevFunctionality = () => {
-    const { questions, questionIndex } = this.state;
-    console.log(questions[questionIndex - 1]);
-    this.setState((perv) => ({ questionIndex: perv.questionIndex - 1 }));
+    const { questionIndex } = this.state;
+    if (questionIndex <= 0) {
+      this.setState({ questionIndex: 0 });
+    } else {
+      this.setState((perv) => ({ questionIndex: perv.questionIndex - 1 }));
+    }
   };
 
   nextFunctionality = () => {
     const { questions, questionIndex } = this.state;
-    console.log(questions[questionIndex + 1].questionText);
-    this.setState((perv) => ({ questionIndex: perv.questionIndex + 1 }));
+    console.log(questions.length);
+
+    if (questionIndex >= questions.length - 1) {
+      console.log(questionIndex);
+      this.setState({ questionIndex: questions.length - 1 });
+    } else {
+      this.setState((perv) => ({ questionIndex: perv.questionIndex + 1 }));
+    }
   };
 
   render() {
-    const { questions, questionIndex, testName } = this.state;
+    const { questions, questionIndex, testName, getAnswers } = this.state;
+    console.log(getAnswers);
     return (
       <div className="test-container">
         <div className="qus-container">
           <div>
             <h1>{testName}</h1>
           </div>
-          <Question questionData={questions[questionIndex]} />
-          <div>
-            <button onClick={this.prevFunctionality} type="button">
+          <Question
+            key={questions[questionIndex]}
+            questionData={questions[questionIndex]}
+            gettingAnswers={this.gettingAnswers}
+          />
+          <div className="button-cont">
+            <button
+              className="button-sizing"
+              onClick={this.prevFunctionality}
+              type="button"
+            >
               Prev
             </button>
-            <button type="button" onClick={this.nextFunctionality}>
+            <button
+              className="button-sizing"
+              type="button"
+              onClick={this.nextFunctionality}
+            >
               Next
             </button>
           </div>
