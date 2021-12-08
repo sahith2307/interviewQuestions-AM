@@ -110,7 +110,7 @@
         {
           "questionText": "Which of the following function of Array object adds one or more elements to the end of an array and returns the new length of the array?",
           "correctOptionIndex": 1,
-          "_id": "598e93a7cc88456d444e7c14",
+          "_id": "598e93a7cc88456d444e7c13",
           "options": ["Pop()", "Push()", "Join()", "Map()"]
         }
       ]

@@ -3,6 +3,7 @@ import { Component } from "react";
 import Data from "../data.json";
 
 import Subject from "../Subject";
+import Header from "../Header";
 
 import "./index.css";
 
@@ -20,8 +21,15 @@ class ExamSection extends Component {
     ));
   };
   render() {
+
+     
+    localStorage.setItem("AngularJS Test", JSON.stringify({}));
+    localStorage.setItem("Javascript Test", JSON.stringify({}));
+    localStorage.setItem("NodeJS Test", JSON.stringify({}));
     return (
+
       <div className="main-container">
+        <Header/>
         <ul className="un-ordered-lists">
           <li>
             <div className="arrange-head-cont">

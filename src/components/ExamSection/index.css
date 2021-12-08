@@ -3,6 +3,7 @@
   width: 100vw;
   background-color: #a60d12;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }

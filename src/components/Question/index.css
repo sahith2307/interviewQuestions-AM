@@ -7,3 +7,21 @@
   flex-direction: column;
   align-content: center;
 }
+label {
+  font-family: Gill Sans, sans-serif;
+  font-weight: 700;
+  color: #211c1c;
+}
+.question-head {
+  font-size: 20px;
+  font-family: Lucida, sans-serif;
+}
+
+.component-li {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.input-editing {
+  border-width: 0px;
+  background-color: #211c1c;
+}
