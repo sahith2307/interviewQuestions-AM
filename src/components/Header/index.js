@@ -2,7 +2,7 @@ import "./index.css";
 const Header = () => {
   return (
     <div className="header-container">
-      <h1>Interview Question</h1>
+      <h1>My Interview Portal</h1>
       <hr />
     </div>
   );

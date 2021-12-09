@@ -25,3 +25,25 @@ label {
   border-width: 0px;
   background-color: #211c1c;
 }
+
+.button-cont {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+.button-sizing {
+  height: 30px;
+  width: 70px;
+  border-radius: 5px;
+  border-width: 0px;
+}
+.start-button {
+  height: 30px;
+  width: 70px;
+
+  border-radius: 5px;
+  border-width: 0px;
+}
+.not-display {
+  display: none;
+}

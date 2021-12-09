@@ -4,18 +4,18 @@ import Question from "../Question";
 
 import Data from "../data.json";
 
+import Header from "../Header";
+
 import "./index.css";
 
 class TestSection extends Component {
   state = {
     data: Data,
     questions: [],
+    paramsId: "",
     testName: "",
     questionIndex: 0,
     getAnswers: {},
-    selectedIndex: {},
-    finished: false,
-    score: 0,
   };
 
   componentWillMount() {
@@ -37,19 +37,13 @@ class TestSection extends Component {
     this.setState({
       questions: dataTaken[0].questions,
       testName: dataTaken[0].name,
+      paramsId: id,
     });
   };
 
   finishFunctionality = () => {
-    const { getAnswers, testName, questions } = this.state;
-    console.log(this.gettingAnswers);
+    const { getAnswers, testName } = this.state;
     localStorage.setItem(testName, JSON.stringify(getAnswers));
-
-    let storeScore = 0;
-    for (let id in questions) {
-      console.log(questions[id]._id);
-    }
-    this.setState({ score: storeScore, finished: true });
   };
 
   gettingAnswers = (value, correctValue, id) => {
@@ -87,24 +81,16 @@ class TestSection extends Component {
   };
 
   render() {
-    const { questions, questionIndex, testName, finished, getAnswers, score } =
+    const { questions, questionIndex, testName, getAnswers, paramsId } =
       this.state;
 
     return (
       <div className="test-container">
-        <div>
-          <h1>{testName}</h1>
-        </div>
-        {finished ? (
-          <div className="qus-container">
-            <div>
-              <h1>Number Of Questions {questions.length}</h1>
-              <h1>
-                Correct Answers {score} Wrong Answers {questions.length - score}
-              </h1>
-            </div>
+        <Header />
+        <div className="finishes-container">
+          <div className="testName-container">
+            <h1>{testName}</h1>
           </div>
-        ) : (
           <div className="qus-container">
             <Question
               testName={testName}
@@ -115,11 +101,12 @@ class TestSection extends Component {
               nextFunctionality={this.nextFunctionality}
               prevFunctionality={this.prevFunctionality}
               finishFunctionality={this.finishFunctionality}
-              questionIndex
-              questions
+              questionIndex={questionIndex}
+              questions={questions}
+              paramsId={paramsId}
             />
           </div>
-        )}
+        </div>
       </div>
     );
   }

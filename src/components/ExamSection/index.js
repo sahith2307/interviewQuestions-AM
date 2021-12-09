@@ -8,7 +8,7 @@ import Header from "../Header";
 import "./index.css";
 
 class ExamSection extends Component {
-  state = { tests: Data.tests, angualrJs: [] };
+  state = { tests: Data.tests };
   listOfTests = () => {
     const { tests } = this.state;
     return tests.map((each) => (
@@ -21,24 +21,26 @@ class ExamSection extends Component {
     ));
   };
   render() {
-
-     
     localStorage.setItem("AngularJS Test", JSON.stringify({}));
     localStorage.setItem("Javascript Test", JSON.stringify({}));
     localStorage.setItem("NodeJS Test", JSON.stringify({}));
     return (
-
       <div className="main-container">
-        <Header/>
+        <Header />
         <ul className="un-ordered-lists">
-          <li>
-            <div className="arrange-head-cont">
-              <h1>name</h1>
-              <h1>Number Of Questions</h1>
-            </div>
+          <li className="list-of-qus">
+            <h1 className="heading-lists">Test</h1>
+            <h1 className="heading-lists">Number Of Questions</h1>
+            <div></div>
           </li>
           {this.listOfTests()}
         </ul>
+        <span className="api">
+          API Url:
+          <a href=" http://interviewapi.stagging.in/getQuizData">
+            http://interviewapi.stagging.in/getQuizData
+          </a>
+        </span>
       </div>
     );
   }

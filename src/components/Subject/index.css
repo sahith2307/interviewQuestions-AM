@@ -1,6 +1,6 @@
 .list-of-qus {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 hr {
   width: 100%;
@@ -9,4 +9,10 @@ hr {
   width: 50%;
   display: flex;
   justify-content: space-between;
+}
+
+.test-name {
+  font-weight: 500;
+  font-size: 20px;
+  color: #000000;
 }

@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { Link } from "react-router-dom";
 
 import { AiOutlineCaretLeft, AiFillCaretRight } from "react-icons/ai";
 import "./index.css";
@@ -119,7 +120,7 @@ class Question extends Component {
   }
 
   render() {
-    const { questionData, questionIndex, questions } = this.props;
+    const { questionData, questionIndex, questions, paramsId } = this.props;
     const { questionText, type, options } = questionData;
     const { a, getLocal } = this.state;
     const typeOfInput = type ? "checkbox" : "radio";
@@ -168,13 +169,15 @@ class Question extends Component {
           >
             <AiFillCaretRight />
           </button>
-          <button
-            type="button"
-            className={`button-sizing `}
-            onClick={this.finishFunction}
-          >
-            Finish
-          </button>
+          <Link to={`/finished/${paramsId}`}>
+            <button
+              type="button"
+              className={`button-sizing `}
+              onClick={this.finishFunction}
+            >
+              Finish
+            </button>
+          </Link>
         </div>
       </>
     );
